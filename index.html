@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Avarin homepage variations</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --pill-bg: rgba(15, 23, 42, .88); --pill-fg: #f8fafc; --pill-dim: rgba(248, 250, 252, .62); --pill-on: #fff; --pill-thumb: rgba(255, 255, 255, .16); }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; background: #fff; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+
+  .switcher {
+    position: fixed; z-index: 10; left: 50%; bottom: max(16px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 4px; padding: 4px;
+    background: var(--pill-bg); color: var(--pill-fg);
+    border: 1px solid rgba(255, 255, 255, .14); border-radius: 999px;
+    box-shadow: 0 8px 28px rgba(2, 6, 23, .28), 0 1px 3px rgba(2, 6, 23, .3);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+    font: 500 13px/1 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    transition: opacity .2s;
+  }
+  .switcher:not(:hover):not(:focus-within) { opacity: .82; }
+  .seg { position: relative; display: flex; }
+  .thumb {
+    position: absolute; top: 0; bottom: 0; left: 0; border-radius: 999px; background: var(--pill-thumb);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18);
+    transition: transform .28s cubic-bezier(.3, .8, .3, 1), width .28s cubic-bezier(.3, .8, .3, 1);
+  }
+  .opt {
+    position: relative; display: flex; align-items: center; gap: 8px; padding: 10px 16px; border: 0; border-radius: 999px;
+    background: none; color: var(--pill-dim); font: inherit; cursor: pointer; white-space: nowrap; transition: color .15s;
+  }
+  .opt:hover, .opt[aria-pressed="true"] { color: var(--pill-on); }
+  .opt kbd {
+    font: 600 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace; padding: 3px 5px; border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, .25); color: inherit;
+  }
+  .tool {
+    display: grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 50%;
+    background: none; color: var(--pill-dim); cursor: pointer; text-decoration: none;
+  }
+  .tool:hover { color: var(--pill-on); background: rgba(255, 255, 255, .1); }
+  .tool svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .sep { width: 1px; height: 18px; background: rgba(255, 255, 255, .16); margin: 0 2px; }
+  :focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+
+  .switcher.min { gap: 0; }
+  .switcher.min .seg, .switcher.min .sep, .switcher.min .open { display: none; }
+  .switcher.min .collapse svg { transform: rotate(180deg); }
+  .switcher.min .badge { display: block; }
+  .badge { display: none; padding: 0 6px 0 12px; font-weight: 600; white-space: nowrap; }
+
+  @media (max-width: 480px) {
+    .opt { padding: 10px 12px; } .opt kbd { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .thumb, .switcher { transition: none; } }
+</style>
+</head>
+<body>
+<iframe id="frame" title="Homepage design" src="about:blank"></iframe>
+
+<div class="switcher" id="switcher" role="group" aria-label="Switch homepage design">
+  <span class="badge" id="badge"></span>
+  <div class="seg" id="seg"><span class="thumb" id="thumb"></span></div>
+  <span class="sep"></span>
+  <a class="tool open" id="open" href="#" target="_blank" rel="noopener" aria-label="Open this design in a new tab" title="Open in a new tab">
+    <svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+  </a>
+  <button class="tool collapse" id="collapse" type="button" aria-label="Minimise switcher" title="Minimise">
+    <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+</div>
+
+<script>
+  // To add a design, put its folder next to this file and add one line here.
+  const DESIGNS = [
+    { id: '1', path: 'v1/', label: 'Design 1' },
+    { id: '2', path: 'v2/', label: 'Design 2' },
+  ];
+
+  const frame = document.getElementById('frame');
+  const seg = document.getElementById('seg');
+  const thumb = document.getElementById('thumb');
+  const sw = document.getElementById('switcher');
+  const badge = document.getElementById('badge');
+  const openLink = document.getElementById('open');
+  const collapseBtn = document.getElementById('collapse');
+  let current = null;
+
+  const buttons = DESIGNS.map((d, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'opt'; b.setAttribute('aria-pressed', 'false');
+    b.innerHTML = d.label + ' <kbd>' + (i + 1) + '</kbd>';
+    b.addEventListener('click', () => show(d.id));
+    seg.appendChild(b);
+    return b;
+  });
+
+  function moveThumb() {
+    const b = buttons[DESIGNS.findIndex(d => d.id === current)];
+    if (!b || !b.offsetWidth) return;
+    thumb.style.width = b.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + b.offsetLeft + 'px)';
+  }
+
+  function show(id, fromHash) {
+    const d = DESIGNS.find(x => x.id === id) || DESIGNS[0];
+    if (d.id === current) return;
+    current = d.id;
+    frame.src = d.path;
+    document.title = d.label + ' — Avarin homepage variations';
+    buttons.forEach((b, i) => b.setAttribute('aria-pressed', String(DESIGNS[i].id === d.id)));
+    badge.textContent = d.label;
+    openLink.href = d.path;
+    moveThumb();
+    if (!fromHash) history.replaceState(null, '', '#' + d.id);
+  }
+
+  function step(delta) {
+    const i = DESIGNS.findIndex(d => d.id === current);
+    show(DESIGNS[(i + delta + DESIGNS.length) % DESIGNS.length].id);
+  }
+
+  function onKey(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName || '') || e.target.isContentEditable) return;
+    const n = parseInt(e.key, 10);
+    if (n >= 1 && n <= DESIGNS.length) show(DESIGNS[n - 1].id);
+    else if (e.key === '[') step(-1);
+    else if (e.key === ']') step(1);
+  }
+  document.addEventListener('keydown', onKey);
+  // Same-origin frames: keep the shortcuts working while the design has focus.
+  frame.addEventListener('load', () => {
+    try { frame.contentDocument.addEventListener('keydown', onKey); } catch (_) {}
+  });
+
+  function setMin(min) {
+    sw.classList.toggle('min', min);
+    collapseBtn.setAttribute('aria-label', min ? 'Expand switcher' : 'Minimise switcher');
+    collapseBtn.title = min ? 'Expand' : 'Minimise';
+    try { localStorage.setItem('avarin-switcher-min', min ? '1' : '0'); } catch (_) {}
+    if (!min) requestAnimationFrame(moveThumb);
+  }
+  collapseBtn.addEventListener('click', () => setMin(!sw.classList.contains('min')));
+
+  window.addEventListener('hashchange', () => show(location.hash.slice(1), true));
+  window.addEventListener('resize', moveThumb);
+  try { if (localStorage.getItem('avarin-switcher-min') === '1') setMin(true); } catch (_) {}
+  show(location.hash.slice(1) || DESIGNS[0].id, true);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveThumb);
+</script>
+</body>
+</html>
