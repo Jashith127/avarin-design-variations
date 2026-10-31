@@ -409,19 +409,10 @@
      Header wordmark: big in the hero, docked center-bar on scroll.
   ---------------------------------------------------- */
   function initHeaderBrand(){
-    var heroBrand = document.querySelector('.hero-brand');
-    if (!heroBrand) return;
-    document.body.classList.add('has-hero');
     function onScroll(){
-      var r = heroBrand.getBoundingClientRect();
-      document.body.classList.toggle('is-scrolled', r.bottom < 72);
+      document.body.classList.toggle('is-scrolled', window.scrollY > 24);
     }
-    if ('IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(){ onScroll(); }, { rootMargin:'-72px 0px 0px 0px' });
-      io.observe(heroBrand);
-    } else {
-      window.addEventListener('scroll', onScroll, { passive:true });
-    }
+    window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
   }
 

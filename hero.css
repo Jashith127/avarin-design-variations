@@ -1,5 +1,4 @@
 /* Hero: channel circles + app window (fixed height, screens instead of growing) */
-.hero-brand{display:block;width:clamp(280px,46vw,620px);height:auto;margin-bottom:clamp(18px,2.4vw,32px)}
 .reads{margin-top:30px;max-width:46ch}
 .reads-l{font-size:var(--step-small);font-weight:600;color:var(--muted);text-wrap:pretty}
 .reads-list{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0;padding:0;list-style:none}

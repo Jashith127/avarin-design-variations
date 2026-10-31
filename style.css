@@ -49,12 +49,11 @@ button{cursor:pointer}
 .link:hover{text-underline-offset:8px}
 
 /* Header */
-.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--m);padding:12px var(--m);background:var(--bg)}
-.brand{position:absolute;left:var(--m);top:50%;transform:translateY(-50%);display:flex;align-items:center;min-height:44px;flex:none}
-.brand img{height:28px;width:auto}
-/* the wordmark lives big in the hero; it docks on the left of the bar once you scroll past it */
-body.has-hero .brand{opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s .3s}
-body.has-hero.is-scrolled .brand{opacity:1;visibility:visible;transition-delay:0s}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--m);min-height:68px;padding:5px var(--m);background:var(--bg)}
+.brand{position:absolute;left:var(--m);top:60%;transform:translateY(-50%);display:flex;align-items:center;flex:none;transition:top .4s var(--ease)}
+.brand img{width:clamp(210px,33vw,480px);height:auto;transition:width .4s var(--ease)}
+body.is-scrolled .brand{top:50%}
+body.is-scrolled .brand img{width:227px}
 .primary-nav{display:flex;gap:28px;margin-left:auto;font-weight:600;font-size:var(--step-small)}
 .primary-nav a{text-decoration:none;padding:12px 0}
 .primary-nav a:hover{color:var(--accent)}
@@ -128,14 +127,7 @@ body.has-hero.is-scrolled .brand{opacity:1;visibility:visible;transition-delay:0
 /* Hero */
 .hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--m);align-items:center;min-height:calc(100svh - 72px);padding:clamp(12px,1.6vw,24px) var(--m) clamp(16px,2vw,28px)}
 .hero-copy{padding:0}
-/* desktop: wordmark sits in the empty space above the hero copy, out of flow */
-@media (min-width:1024px){
-  .hero-copy{position:relative}
-  .hero .hero-brand{position:absolute;left:0;bottom:calc(100% + clamp(40px,9vh,100px));margin:0}
-}
-@media (min-width:1024px) and (max-height:850px){
-  .hero .hero-brand{width:clamp(240px,34vw,460px);bottom:calc(100% + clamp(24px,7vh,80px))}
-}
+
 .hero h1{font-weight:800;font-size:clamp(2.5rem,.8rem + 4.4vw,4.75rem);line-height:.92;letter-spacing:-.05em}
 .hero-after{margin-top:clamp(24px,3vw,44px)}
 .lead{font-size:var(--step-lead);line-height:1.3;max-width:34ch;text-wrap:pretty}
@@ -492,7 +484,6 @@ body.has-hero.is-scrolled .brand{opacity:1;visibility:visible;transition-delay:0
   .ss{height:280svh}
   .ss-pin{min-height:0;max-height:none}
   .hero{min-height:0}
-  .brand img{height:24px}
   .assure-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .learn-grid{grid-template-columns:1fr}
   .plans{grid-template-columns:1fr;gap:40px}
@@ -539,7 +530,7 @@ body.has-hero.is-scrolled .brand{opacity:1;visibility:visible;transition-delay:0
 }
 
 @media (max-width:640px){
-  .brand img{height:24px}
+  .brand img,body.is-scrolled .brand img{width:210px}
   .app-tabs button{padding-inline:11px}
   .app-tabs button .ic{display:none}
   .app-views{padding:12px}
