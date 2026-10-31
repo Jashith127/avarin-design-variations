@@ -49,7 +49,7 @@ button{cursor:pointer}
 .link:hover{text-underline-offset:8px}
 
 /* Header */
-.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--m);min-height:68px;padding:5px var(--m);background:var(--bg)}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--m);min-height:84px;padding:16px var(--m) 6px;background:var(--bg)}
 .brand{position:absolute;left:var(--m);top:60%;transform:translateY(-50%);display:flex;align-items:center;flex:none;transition:top .4s var(--ease)}
 .brand img{width:clamp(210px,33vw,480px);height:auto;transition:width .4s var(--ease)}
 body.is-scrolled .brand{top:50%}
