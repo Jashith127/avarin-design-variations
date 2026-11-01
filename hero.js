@@ -1,4 +1,4 @@
-/* Hero demo. A cursor works through Briefing, Feedback and Issues on a loop.
+/* Hero demo. A cursor works through Briefing, Reviews and Issues on a loop.
    The window never changes size: each view moves between whole screens.
    Markup holds the first screen of every view, so it reads fine without JS. */
 (function(){
@@ -14,10 +14,10 @@
   var pauseButton = $('heroPause'), pauseLabel = $('pauseLabel'), announcer = $('heroAnnouncement');
   var order = ['briefing', 'reviews', 'issues'];
   var who = { briefing:'GM', reviews:'GRM', issues:'Maintenance' };
-  var TITLES = ['Your day', 'Guest feedback', 'Issues'];
-  var TAGS = ['Today\'s briefing', 'Today', 'Today'];
+  var TITLES = ['Your day', 'Reviews', 'Issues'];
+  var TAGS = ['Today\'s briefing', '4 new reviews', 'By urgency'];
   var CAPS = [['1 · Briefing', 'Each morning, Sia tells you what needs your attention.'],
-              ['2 · Feedback', 'Comments arrive from connected channels, QR cards and surveys. Sia drafts the replies, and a person posts them.'],
+              ['2 · Reviews', 'Open a review to approve Sia’s draft reply — then open its related issue.'],
               ['3 · Issues', 'A guest\'s problem gets an owner, and Sia follows it until it\'s Solved.']];
   var tabs = order.map(function(n){ return $('ap-tab-' + n); });
   var views = order.map(function(n){ return $('apv-' + n); });
@@ -62,11 +62,12 @@
   var briefList = $('briefList'), input = $('apInput'), inputText = $('apInputText'), send = $('apSend');
   var bubU = $('bubU'), bubS = $('bubS'), typing = $('typing');
   var ASK = 'Which issue should I look at first?';
+  var PLACEHOLDER = 'Ask about issues, reviews, or score impact…';
   function briefReset(){
     screen(views[0], 'list');
     briefList.classList.add('is-arming');
     all('li', briefList).forEach(function(li){ li.classList.remove('in'); });
-    inputText.textContent = 'Ask Sia anything';
+    inputText.textContent = PLACEHOLDER;
     input.classList.remove('is-focus');
     [bubU, bubS].forEach(function(b){ b.classList.add('is-hidden'); });
     typing.classList.add('is-hidden');
@@ -74,7 +75,7 @@
   function briefFirst(){
     screen(views[0], 'list');
     briefList.classList.remove('is-arming');
-    inputText.textContent = 'Ask Sia anything';
+    inputText.textContent = PLACEHOLDER;
     input.classList.remove('is-focus');
   }
   async function playBriefing(id){
@@ -95,7 +96,7 @@
     await fly(send, id);
     await tap(send, id);
     screen(views[0], 'chat');
-    inputText.textContent = 'Ask Sia anything';
+    inputText.textContent = PLACEHOLDER;
     input.classList.remove('is-focus');
     await wait(350, id);
     bubU.classList.remove('is-hidden');
@@ -122,9 +123,9 @@
     reviewsFirst();
     draftText.textContent = '';
     await wait(700, id);
-    await fly(revRows[1], id, .55, .5);
-    await tap(revRows[1], id);
-    pick(revRows, 1);
+    await fly(revRows[0], id, .55, .5);
+    await tap(revRows[0], id);
+    pick(revRows, 0);
     await wait(250, id);
     screen(views[1], 'detail');
     await wait(500, id);
@@ -133,12 +134,21 @@
     await fly(approveChip, id);
     await tap(approveChip, id);
     approved(true);
-    await wait(3000, id);
+    await wait(1000, id);
+    /* Open the related issue directly from the review. */
+    var linked = $('linkedIssue');
+    await fly(linked, id);
+    await tap(linked, id);
+    showView(2);
+    screen(views[2], 'detail');
+    pick(issRows, 0);
+    life(0);
+    await wait(1500, id);
   }
 
-  /* ---- Issues ---- */
+  /* ---- Issues (continues from the linked issue) ---- */
   var issRows = all('.inbox-row', $('issueList')), newRow = issRows[0];
-  var statusTag = $('statusTag'), lifeSteps = all('li', $('lifecycle')), resSlot = $('resSlot'), acceptChip = $('acceptChip');
+  var statusTag = $('statusTag'), lifeSteps = all('li', $('lifecycle')), resSlot = $('resSlot'), acceptChip = $('acceptChip'), solveChip = $('solveChip');
   function life(step){
     lifeSteps.forEach(function(li, i){
       li.classList.remove('is-done', 'is-current');
@@ -151,24 +161,19 @@
     resSlot.classList.toggle('is-hidden', step < 2);
     acceptChip.textContent = step === 0 ? 'Accept' : 'Accepted';
     acceptChip.classList.toggle('is-done', step > 0);
+    solveChip.textContent = step === 2 ? 'Solved' : 'Mark Solved';
+    solveChip.classList.toggle('is-done', step === 2);
   }
   function issuesFirst(){ screen(views[2], 'list'); newRow.classList.remove('is-hidden'); pick(issRows, -1); life(0); }
   async function playIssues(id){
-    issuesFirst();
-    newRow.classList.add('is-hidden');
-    await wait(900, id);
-    newRow.classList.remove('is-hidden');
-    await wait(1300, id);
-    await fly(newRow, id, .5, .5);
-    await tap(newRow, id);
-    pick(issRows, 0);
-    await wait(250, id);
     screen(views[2], 'detail');
-    await wait(900, id);
+    await wait(600, id);
     await fly(acceptChip, id);
     await tap(acceptChip, id);
     life(1);
-    await wait(1700, id);
+    await wait(1200, id);
+    await fly(solveChip, id);
+    await tap(solveChip, id);
     life(2);
     await wait(3000, id);
   }

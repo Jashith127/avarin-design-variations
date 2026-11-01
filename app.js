@@ -320,45 +320,182 @@
   }
 
   /* ---------------------------------------------------
-     Team: a row of role panels, the centred one lit.
+     Team: one black band, one slide per role. Tabs and arrows move
+     between roles; inside a role, a guided tour steps through the
+     features on its own until the visitor takes over.
   ---------------------------------------------------- */
-  function initTeamRow(){
-    var row = document.getElementById('row');
-    if (!row) return;
-    var pnls = psi('.pnl', row);
-    var nm = document.getElementById('pName'), tx = document.getElementById('pText');
-    var cur = 0;
-    function centre(){
-      var mid = row.scrollLeft + row.clientWidth / 2, best = 0, bd = 1e9;
-      pnls.forEach(function(p, i){
-        var d = Math.abs(p.offsetLeft + p.offsetWidth / 2 - mid);
-        if (d < bd){ bd = d; best = i; }
-      });
-      if (best !== cur || !pnls[best].classList.contains('is-on')){
-        cur = best;
-        pnls.forEach(function(p, i){ p.classList.toggle('is-on', i === best); });
-        nm.textContent = pnls[best].dataset.name;
-        tx.textContent = pnls[best].dataset.text;
-      }
-    }
-    function go(n){
-      n = Math.max(0, Math.min(pnls.length - 1, n));
-      var p = pnls[n];
-      row.scrollTo({ left:p.offsetLeft + p.offsetWidth / 2 - row.clientWidth / 2, behavior:reduceMotion ? 'auto' : 'smooth' });
-    }
-    row.addEventListener('scroll', centre, { passive:true });
-    document.getElementById('prev').addEventListener('click', function(){ go(cur - 1); });
-    document.getElementById('next').addEventListener('click', function(){ go(cur + 1); });
-    row.addEventListener('keydown', function(e){
-      if (e.key === 'ArrowRight'){ e.preventDefault(); go(cur + 1); }
-      if (e.key === 'ArrowLeft'){ e.preventDefault(); go(cur - 1); }
+  function initTeam(){
+    var section = document.getElementById('team');
+    var track = document.getElementById('tmTrack');
+    if (!section || !track) return;
+    var tabs = psi('.tm-tab', section);
+    var slides = psi('.tm-slide', section);
+    var prev = document.getElementById('tmPrev');
+    var next = document.getElementById('tmNext');
+    var count = document.getElementById('tmCount');
+    var current = 0;
+    var live = false;
+    var manual = false;
+    var scrollMode = false;
+    var segs = psi('.tm-segs i', section);
+    var groups = psi('.tm-grp', section);
+    var steps = [];
+    slides.forEach(function(slide, si){
+      psi('.tm-chip', slide).forEach(function(_, fi){ steps.push({ slide:si, feat:fi }); });
     });
-    var down = false, sx = 0, sl = 0;
-    row.addEventListener('pointerdown', function(e){ if (e.pointerType === 'mouse'){ down = true; sx = e.clientX; sl = row.scrollLeft; row.style.scrollSnapType = 'none'; } });
-    window.addEventListener('pointerup', function(){ if (down){ down = false; row.style.scrollSnapType = ''; go(cur); } });
-    window.addEventListener('pointermove', function(e){ if (down){ row.scrollLeft = sl - (e.clientX - sx); } });
-    centre();
-    window.setTimeout(function(){ go(0); }, 50);
+    var starts = slides.map(function(_, si){
+      return steps.findIndex(function(s){ return s.slide === si; });
+    });
+    var lastStep = -1;
+
+    function stopAuto(){
+      manual = true;
+      section.classList.add('is-manual');
+    }
+
+    function show(index, moveFocus){
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      section.setAttribute('data-theme', slides[current].dataset.role);
+      slides.forEach(function(slide, i){
+        var on = i === current;
+        slide.classList.toggle('is-on', on);
+        slide.classList.toggle('is-before', i < current);
+        if (on){
+          slide.removeAttribute('inert');
+          slide.removeAttribute('aria-hidden');
+        } else {
+          slide.setAttribute('inert', '');
+          slide.setAttribute('aria-hidden', 'true');
+        }
+      });
+      groups.forEach(function(group, i){ group.classList.toggle('is-on', i === current); });
+      tabs.forEach(function(tab, i){
+        tab.setAttribute('aria-selected', String(i === current));
+        tab.setAttribute('tabindex', i === current ? '0' : '-1');
+      });
+      prev.disabled = current === 0;
+      next.disabled = current === slides.length - 1;
+      count.textContent = (current + 1) + ' / ' + slides.length;
+      if (moveFocus) tabs[current].focus();
+    }
+
+    function openFeature(slide, index, moveFocus){
+      var chips = psi('.tm-chip', slide);
+      var cards = psi('.tm-card', slide);
+      index = (index + chips.length) % chips.length;
+      var screen = cards[index].dataset.screen;
+      chips.forEach(function(chip, i){
+        chip.classList.toggle('is-on', i === index);
+        chip.setAttribute('aria-selected', String(i === index));
+        chip.setAttribute('tabindex', i === index ? '0' : '-1');
+      });
+      cards.forEach(function(card, i){
+        card.classList.toggle('is-on', i === index);
+        card.classList.toggle('is-before', i < index);
+      });
+      psi('.tm-screen', slide).forEach(function(s, i){
+        s.classList.toggle('is-on', i === index);
+        s.classList.toggle('is-before', i < index);
+      });
+      if (moveFocus) chips[index].focus();
+    }
+
+    slides.forEach(function(slide){
+      var chips = psi('.tm-chip', slide);
+      chips.forEach(function(chip, i){
+        chip.addEventListener('click', function(){ stopAuto(); openFeature(slide, i); });
+        chip.addEventListener('keydown', function(event){
+          var target = null;
+          if (event.key === 'ArrowRight') target = i + 1;
+          else if (event.key === 'ArrowLeft') target = i - 1;
+          else if (event.key === 'Home') target = 0;
+          else if (event.key === 'End') target = chips.length - 1;
+          if (target === null) return;
+          event.preventDefault();
+          stopAuto();
+          openFeature(slide, target, true);
+        });
+        chip.addEventListener('animationend', function(){
+          if (scrollMode || manual || !live || !chip.classList.contains('is-on')) return;
+          openFeature(slide, i + 1);
+        });
+      });
+    });
+
+    tabs.forEach(function(tab, i){
+      tab.addEventListener('click', function(){ stopAuto(); if (scrollMode){ jumpTo(starts[i]); } else { show(i); } });
+      tab.addEventListener('keydown', function(event){
+        var target = null;
+        if (event.key === 'ArrowRight') target = (i + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft') target = (i - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') target = 0;
+        else if (event.key === 'End') target = tabs.length - 1;
+        if (target === null) return;
+        event.preventDefault();
+        stopAuto();
+        show(target, true);
+      });
+    });
+    groups.forEach(function(group, i){
+      group.addEventListener('click', function(){ stopAuto(); jumpTo(starts[i]); });
+    });
+    prev.addEventListener('click', function(){ stopAuto(); show(current - 1); });
+    next.addEventListener('click', function(){ stopAuto(); show(current + 1); });
+
+    function span(){
+      return section.offsetHeight - window.innerHeight;
+    }
+    function jumpTo(step){
+      var top = section.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: top + (step + 0.5) / steps.length * span(), behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+    function onScroll(){
+      if (!scrollMode) return;
+      var p = Math.max(0, Math.min(1, -section.getBoundingClientRect().top / span()));
+      var pos = p * steps.length;
+      var idx = Math.min(steps.length - 1, Math.floor(pos));
+      segs.forEach(function(seg, k){
+        seg.style.setProperty('--f', String(Math.max(0, Math.min(1, pos - k))));
+      });
+      section.classList.toggle('is-moved', p > 0.02);
+      if (idx === lastStep) return;
+      lastStep = idx;
+      var step = steps[idx];
+      if (step.slide !== current) show(step.slide);
+      openFeature(slides[step.slide], step.feat);
+    }
+    function evalMode(){
+      var on = window.innerWidth >= 900 && window.innerHeight >= 560 && !reduceMotion;
+      if (on !== scrollMode){
+        scrollMode = on;
+        section.classList.toggle('is-scroll', on);
+        lastStep = -1;
+        if (!on) section.classList.remove('is-moved');
+      }
+      section.style.setProperty('--steps', String(steps.length));
+      onScroll();
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', evalMode);
+
+    var startX = null;
+    track.addEventListener('touchstart', function(event){ startX = event.touches[0].clientX; }, { passive:true });
+    track.addEventListener('touchend', function(event){
+      if (startX === null) return;
+      var dx = event.changedTouches[0].clientX - startX;
+      startX = null;
+      if (!scrollMode && Math.abs(dx) > 60){ stopAuto(); show(current + (dx < 0 ? 1 : -1)); }
+    }, { passive:true });
+
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){
+        live = entries[0].isIntersecting;
+        section.classList.toggle('is-live', live && !reduceMotion);
+      }, { threshold:.35 }).observe(section);
+    }
+
+    show(0);
+    evalMode();
   }
 
   /* --------------------------------------------- */
@@ -427,7 +564,7 @@
     initRoleCards();
     initApprovalControl();
     initLearningSteps();
-    initTeamRow();
+    initTeam();
   }
 
   if (document.readyState === 'loading'){
