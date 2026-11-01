@@ -1,4 +1,4 @@
-/* Hero demo. A cursor works through Briefing, Reviews and Issues on a loop.
+/* Hero demo. A cursor works through Briefing, Feedback and Issues on a loop.
    The window never changes size: each view moves between whole screens.
    Markup holds the first screen of every view, so it reads fine without JS. */
 (function(){
@@ -10,14 +10,15 @@
   var all = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   var cursor = $('cursor'), cursorTag = $('cursorTag');
-  var capStep = $('capStep'), capText = $('capText'), apTitle = $('apTitle');
+  var capStep = $('capStep'), capText = $('capText'), apTitle = $('apTitle'), apTag = $('apTag');
   var pauseButton = $('heroPause'), pauseLabel = $('pauseLabel'), announcer = $('heroAnnouncement');
   var order = ['briefing', 'reviews', 'issues'];
   var who = { briefing:'GM', reviews:'GRM', issues:'Maintenance' };
-  var TITLES = ['Today\'s brief', 'Review inbox', 'Issues'];
-  var CAPS = [['1 · Briefing', 'Every morning, Sia tells you what needs you.'],
-              ['2 · Reviews', 'Replies are drafted for you. A person approves every one.'],
-              ['3 · Issues', 'Guest feedback becomes an owned issue, tracked to Solved.']];
+  var TITLES = ['Your day', 'Guest feedback', 'Issues'];
+  var TAGS = ['Today\'s briefing', 'Today', 'Today'];
+  var CAPS = [['1 · Briefing', 'Each morning, Sia tells you what needs your attention.'],
+              ['2 · Feedback', 'Comments arrive from connected channels, QR cards and surveys. Sia drafts the replies, and a person posts them.'],
+              ['3 · Issues', 'A guest\'s problem gets an owner, and Sia follows it until it\'s Solved.']];
   var tabs = order.map(function(n){ return $('ap-tab-' + n); });
   var views = order.map(function(n){ return $('apv-' + n); });
   var CANCEL = {};
@@ -191,6 +192,7 @@
     capStep.textContent = CAPS[i][0];
     capText.textContent = CAPS[i][1];
     apTitle.textContent = TITLES[i];
+    apTag.textContent = TAGS[i];
     current = i;
   }
   async function loop(start, skipTab){

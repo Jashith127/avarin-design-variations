@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Avarin — Meet Sia, your hotel's next hire</title>
-<meta name="description" content="Sia is an always-on assistant for hotel managers. She watches service levels, turns guest feedback into traceable issues, and reports back to you.">
+<meta name="description" content="Run your hotel's reputation from one place. Hear what guests say, fix what they raise, and answer with evidence. Sia is the assistant for hotel owners and general managers.">
 <link rel="icon" href="brand/avarin-av-dark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,11 +66,12 @@
   <div class="hero-copy">
     <h1 class="mask" id="heroH"><span class="ln"><span>Meet Sia, your</span></span> <span class="ln"><span>hotel's next hire.</span></span></h1>
     <div class="hero-after">
-      <p class="lead">An always-on assistant for hotel managers. Sia watches your service levels, turns guest feedback into traceable issues, and reports back to you.</p>
+      <p class="lead">Sia turns guest feedback into higher ratings and repeat guests. Built for hotel owners and general managers.</p>
       <div class="actions">
         <a class="btn" data-cta href="mailto:team@avarin.ai?subject=Book%20a%20walkthrough%20of%20Sia">Book a walkthrough</a>
-        <a class="link-arrow" href="#how">See what Sia does<svg class="ic" aria-hidden="true"><use href="#i-arrow-d"/></svg></a>
+        <a class="link-arrow" href="#how">See how Sia helps<svg class="ic" aria-hidden="true"><use href="#i-arrow-d"/></svg></a>
       </div>
+      <p class="hero-note">A short walkthrough on a hotel like yours. No pitch deck.</p>
     </div>
   </div>
 
@@ -84,30 +85,27 @@
           <div class="ap-brand"><span class="sia sia-sm" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="currentColor"/><circle cx="16" cy="7" r="3.4" fill="#fff"/></svg></span><strong>Sia</strong></div>
           <div class="ap-nav" role="tablist" aria-label="Product demo" aria-orientation="vertical">
             <button id="ap-tab-briefing" type="button" role="tab" aria-selected="true" aria-controls="apv-briefing" tabindex="0"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg>Briefing</button>
-            <button id="ap-tab-reviews" type="button" role="tab" aria-selected="false" aria-controls="apv-reviews" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>Reviews</button>
+            <button id="ap-tab-reviews" type="button" role="tab" aria-selected="false" aria-controls="apv-reviews" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>Feedback</button>
             <button id="ap-tab-issues" type="button" role="tab" aria-selected="false" aria-controls="apv-issues" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg>Issues</button>
           </div>
           <p class="ap-note">Sample hotel<br>Illustrative data</p>
         </aside>
 
         <div class="ap-main">
-          <header class="ap-head"><strong id="apTitle">Today's brief</strong><span class="tag">Monday</span></header>
+          <header class="ap-head"><strong id="apTitle">Your day</strong><span class="tag" id="apTag">Today's briefing</span></header>
           <div class="ap-views">
 
             <!-- BRIEFING -->
             <div class="apv is-on" id="apv-briefing" role="tabpanel" aria-labelledby="ap-tab-briefing">
               <div class="scr is-on" data-scr="list" style="--bot:68px">
                 <p class="v-lead">Good morning. Two things need you today.</p>
-                <ol class="brief-list" id="briefList">
-                  <li><p>6 reviews need your approval. My draft replies are ready.</p><span class="tag">6 drafts · To approve</span></li>
-                  <li><p>Room 204 has asked twice about the air conditioning. Maintenance has it, high priority.</p><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">High priority</span></div></li>
-                </ol>
+                <ol class="brief-list" id="briefList"><li><p>Room 204 has mentioned the air conditioning twice. I've passed it to Maintenance, marked Act now.</p><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">Act now</span></div></li><li><p>5 new comments came in overnight: 3 reviews, a room QR note and a survey. Reply drafts are ready.</p><span class="tag">3 drafts · To approve</span></li></ol>
               </div>
               <div class="scr" data-scr="chat" style="--bot:68px">
                 <div class="thread">
                   <p class="bub bub-u is-hidden" id="bubU">Which issue should I look at first?</p>
                   <div class="typing is-hidden" id="typing" aria-hidden="true"><i></i><i></i><i></i></div>
-                  <div class="bub bub-s is-hidden" id="bubS"><span class="sia-answer-label">Sia</span>Start with the air conditioning in room 204. It is high priority, and three guests have mentioned it.<div class="evidence-list"><span class="source-chip">3 reviews</span><span class="source-chip">Issue · AC room 204</span></div></div>
+                  <div class="bub bub-s is-hidden" id="bubS"><span class="sia-answer-label">Sia</span>I'd start with the air conditioning in room 204. It's marked Act now, and three guests have mentioned it.<div class="evidence-list"><span class="source-chip">3 reviews</span><span class="source-chip">Issue · AC room 204</span></div></div>
                 </div>
               </div>
               <div class="ap-input" id="apInput"><span id="apInputText">Ask Sia anything</span><span class="ap-send" id="apSend" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-r"/></svg></span></div>
@@ -116,17 +114,11 @@
             <!-- REVIEWS -->
             <div class="apv" id="apv-reviews" role="tabpanel" aria-labelledby="ap-tab-reviews" inert aria-hidden="true">
               <div class="scr is-on" data-scr="inbox">
-                <div class="v-head"><strong>6 drafts ready</strong><span class="tag">To approve</span></div>
-                <ol class="inbox" id="reviewList" aria-label="Illustrative reviews">
-                  <li class="inbox-row"><span class="stars" style="--r:5" role="img" aria-label="5 out of 5"></span><span class="src src-g" title="Google">G</span><p>“The welcome was warm and the room was quiet.”</p><span class="when">09:10</span></li>
-                  <li class="inbox-row"><span class="stars" style="--r:2" role="img" aria-label="2 out of 5"></span><span class="src src-t" title="Tripadvisor">T</span><p>“The breakfast queue was long and the welcome felt rushed.”</p><span class="when">08:42</span></li>
-                  <li class="inbox-row"><span class="stars" style="--r:4" role="img" aria-label="4 out of 5"></span><span class="src src-b" title="Booking.com">B</span><p>“Lovely room, though the lift wait was long.”</p><span class="when">Yesterday</span></li>
-                  <li class="inbox-row"><span class="stars" style="--r:3" role="img" aria-label="3 out of 5"></span><span class="src src-g" title="Google">G</span><p>“Check-in took longer than expected.”</p><span class="when">Yesterday</span></li>
-                  <li class="inbox-row"><span class="stars" style="--r:5" role="img" aria-label="5 out of 5"></span><span class="src src-b" title="Booking.com">B</span><p>“Front desk remembered our names.”</p><span class="when">Monday</span></li>
-                </ol>
+                <div class="v-head"><strong>5 new comments</strong><span class="tag">3 drafts · To approve</span></div>
+                <ol class="inbox" id="reviewList" aria-label="Illustrative guest feedback"><li class="inbox-row"><span class="tag tag-blue">QR note</span><span class="src src-q"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg></span><p>“The air conditioning is too warm.”</p><span class="when">09:17</span></li><li class="inbox-row"><span class="stars" style="--r:2" role="img" aria-label="2 out of 5"></span><span class="src src-t" title="Tripadvisor">T</span><p>“The breakfast queue was long and the welcome felt rushed.”</p><span class="when">08:42</span></li><li class="inbox-row"><span class="tag">Survey</span><span class="src src-k"><svg class="ic" aria-hidden="true"><use href="#i-survey"/></svg></span><p>“Check-in took longer than expected.”</p><span class="when">Yesterday</span></li><li class="inbox-row"><span class="stars" style="--r:5" role="img" aria-label="5 out of 5"></span><span class="src src-g" title="Google">G</span><p>“The welcome was warm and the room was quiet.”</p><span class="when">Yesterday</span></li><li class="inbox-row"><span class="stars" style="--r:4" role="img" aria-label="4 out of 5"></span><span class="src src-b" title="Booking.com">B</span><p>“Lovely room, though the lift wait was long.”</p><span class="when">Monday</span></li></ol>
               </div>
               <div class="scr" data-scr="detail">
-                <span class="back"><svg class="ic" aria-hidden="true"><use href="#i-arrow-l"/></svg>Review inbox</span>
+                <span class="back"><svg class="ic" aria-hidden="true"><use href="#i-arrow-l"/></svg>Feedback inbox</span>
                 <p class="rev-quote"><span class="stars" style="--r:2" role="img" aria-label="2 out of 5"></span><span>“The breakfast queue was long and the welcome felt rushed.”</span></p>
                 <div class="draft-panel">
                   <div class="dp-head"><span class="sia-answer-label">Sia's draft reply</span><span class="tag" id="draftTag">To approve</span></div>
@@ -148,7 +140,7 @@
               </div>
               <div class="scr" data-scr="detail">
                 <span class="back"><svg class="ic" aria-hidden="true"><use href="#i-arrow-l"/></svg>Issues</span>
-                <div class="det-meta"><span class="tag-group"><span class="tag tag-blue" id="statusTag">Open</span><span class="tag tag-red">High priority</span></span><span class="source-chip"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg> Room QR · 09:17</span></div>
+                <div class="det-meta"><span class="tag-group"><span class="tag tag-blue" id="statusTag">Open</span><span class="tag tag-red">Act now</span></span><span class="source-chip"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg> Room QR · 09:17</span></div>
                 <p class="issue-title">Air conditioning not cooling, room 204</p>
                 <p class="rec-line"><b>Recommended</b>Send an engineer today.<span class="chip chip-fill" id="acceptChip">Accept</span></p>
                 <ol class="lifecycle" id="lifecycle" aria-label="Issue lifecycle">
@@ -177,27 +169,18 @@
 
 <section class="sec how-sec" id="how" aria-labelledby="howH">
   <div class="how-head">
-    <h2 class="h-sec rv" id="howH">What Sia does.</h2>
-    <p class="body rv">From the first guest comment to the answer you give your owner, in the order it happens.</p>
+    <h2 class="h-sec rv" id="howH">How Sia helps.</h2>
+    <p class="body rv">Sia turns reviews, QR feedback and surveys into owned issues and replies, and keeps every report and answer in one record.</p>
+    <div class="evidence-list rv"><span class="source-chip">Listen</span><span>→</span><span class="source-chip">Guests</span><span>→</span><span class="source-chip">Understand</span><span>→</span><span class="source-chip">Respond</span><span>→</span><span class="source-chip">Fix</span><span>→</span><span class="source-chip">Report</span><span>→</span><span class="source-chip">Ask</span></div>
   </div>
-  <div class="tk-pin" id="tkPin" style="--n:5">
-    <div class="tk-sticky" tabindex="0" aria-label="What Sia does, five steps">
-      <div class="tk-track" id="tkTrack">
-        <article class="slide "><div class="hw-copy"><p class="hw-kick"><span class="hw-num">1</span>Watch</p><h3 class="hw-title">She watches your service levels.</h3><p class="hw-text">A 24/7 agent on every channel: reviews, in-room QR notes, surveys and guest conversations. When three guests describe the same problem three ways, Sia sees one problem and keeps their own words as proof.</p><ul class="tick-list"><li>Always on, nothing to forward.</li><li>Repeat problems become one issue.</li><li>The original guest words stay attached.</li></ul></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3600"><div class="mk-bar"><strong>Guest signals</strong><span class="mk-live"><i></i>Live · 24/7</span></div><div class="mk-body"><div class="scr is-on"><p class="mk-h">New in the last hour</p><ol class="source-list"><li class="st-in " style="--k:0"><span class="source-chip"><i class="dot dot-g"></i>Google review · 08:42</span><p>“AC barely cooled the room.”</p></li><li class="st-in " style="--k:1"><span class="source-chip"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg> Room QR · 204 · 09:17</span><p>“AC too warm.”</p></li><li class="st-in " style="--k:2"><span class="source-chip"><i class="dot dot-k"></i>Survey · yesterday</span><p>“Room was hot at night.”</p></li></ol></div><div class="scr"><p class="mk-h">Sia linked them into one issue</p><div class="st-in linked-issue" style="--k:0"><div><strong>Air conditioning · guest rooms</strong><span>3 reports linked</span></div><span class="tag tag-blue">Open</span></div><div class="st-in kv" style="--k:1"><span>Sources</span><b>Google · Room QR · Survey</b></div><div class="st-in kv" style="--k:2"><span>Suggested owner</span><b>Maintenance</b></div><div class="st-in kv hl" style="--k:3"><span>Guest words kept</span><b>All three</b></div></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div></article>
-        <article class="slide dk"><div class="hw-copy"><p class="hw-kick"><span class="hw-num">2</span>Act</p><h3 class="hw-title">She turns a signal into an owned issue.</h3><p class="hw-text">A complaint only helps when someone owns it. Sia attaches the evidence and reports it to the department responsible, with a next step they can accept or edit. Every issue is traceable to Solved.</p><ul class="tick-list"><li>Evidence, owner and urgency attached.</li><li>A recommended action to accept or edit.</li><li>Every step stays on the record.</li></ul></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3800"><div class="mk-bar"><strong>Air conditioning · room 204</strong><span class="tag tag-red">High priority</span></div><div class="mk-body"><div class="scr is-on"><div class="tag-group"><span class="tag tag-blue">Open</span></div><p class="issue-title" style="margin-top:2px">Air conditioning not cooling, room 204</p><div class="evidence-list" style="margin-top:0"><span class="source-chip"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg> Room QR · 09:17</span><span class="source-chip">Google · 08:42</span></div><div class="kv"><span>Department</span><b>Maintenance</b></div><div class="recommendation" style="margin-top:0"><span class="recommendation-label">Recommended action <span class="chip chip-fill">Accept</span></span><p>Send an engineer today.</p></div></div><div class="scr"><p class="mk-h">Every step, on the record</p><ol class="tl"><li class="st-in " style="--k:0"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Opened from a room QR note</b><span>09:17 · evidence attached</span></div></li><li class="st-in " style="--k:1"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Assigned to Maintenance</b><span>09:18 · high priority</span></div></li><li class="st-in " style="--k:2"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Recommended action edited</b><span>09:40 · by the head of Maintenance</span></div></li><li class="st-in " style="--k:3"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>In Progress</b><span>10:05 · engineer on site</span></div></li><li class="st-in " style="--k:4"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Solved</b><span>Unit replaced; guest moved for one night.</span></div></li></ol></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div></article>
-        <article class="slide "><div class="hw-copy"><p class="hw-kick"><span class="hw-num">3</span>Ask</p><h3 class="hw-title">She answers the whole hotel.</h3><p class="hw-text">Ask what needs attention, why it matters and what to do next. Sia answers from your property's own record and shows the evidence behind every answer.</p><ul class="tick-list"><li>Answers from your own record.</li><li>Evidence shown with each answer.</li><li>Ask by text or voice.</li></ul></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="4200"><div class="mk-bar"><strong>Ask Sia</strong><span class="tag">Property record</span></div><div class="mk-body"><div class="scr is-on" style="--bot:62px"><div class="thread"><p class="st-in bub bub-u" style="--k:0">Which open issues should I look at first?</p><div class="st-in bub bub-s" style="--k:2"><span class="sia-answer-label">Sia</span>Start with the guest-room air-conditioning issue, then Friday's slow check-in. The AC issue is high priority; three reviews mention the same problem.</div></div></div><div class="scr" style="--bot:62px"><p class="mk-h">Evidence behind the answer</p><ol class="inbox" style="margin-top:0"><li class="st-in inbox-row" style="--k:0"><span class="stars" style="--r:2" role="img" aria-label="2 out of 5"></span><span class="src src-g">G</span><p>“AC barely cooled the room.”</p><span class="when">08:42</span></li><li class="st-in inbox-row inbox-issue" style="--k:1"><span class="src src-q"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg></span><div class="ir"><strong>Issue · AC, room 204</strong><span>Open · high priority</span></div><span class="tag tag-red">High</span></li><li class="st-in inbox-row inbox-issue" style="--k:2"><span class="src src-k"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg></span><div class="ir"><strong>Survey · slow check-in</strong><span>Friday evenings · 4 mentions</span></div><span class="tag tag-blue">Open</span></li></ol></div><div class="mk-input"><span>Ask Sia anything</span><span class="ap-send" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="#i-arrow-r"/></svg></span></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div></article>
-        <article class="slide bl"><div class="hw-copy"><p class="hw-kick"><span class="hw-num">4</span>Report</p><h3 class="hw-title">She reports to you.</h3><p class="hw-text">A daily brief, plus scheduled reports on service levels, reviews and operations, sent to the people who need them. You always see what Sia saw.</p><ul class="tick-list"><li>A daily brief for the GM.</li><li>Scheduled reports by role.</li><li>Service levels, department by department.</li></ul></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="4200"><div class="mk-bar"><strong>Reports</strong><span class="tag">Illustrative</span></div><div class="mk-body"><div class="scr is-on"><p class="mk-h">Weekly service report</p><div class="stats"><div class="st-in stat" style="--k:0"><b>62</b><span>reviews read</span></div><div class="st-in stat" style="--k:1"><b>9</b><span>issues solved</span></div><div class="st-in stat" style="--k:2"><b>4</b><span>open now</span></div></div><p class="mk-h" style="margin-top:6px">Service level by department</p><div class="bars"><div class="st-in bar-row" style="--k:3"><span>Housekeeping</span><i style="--w:88%"></i><b>88%</b></div><div class="st-in bar-row" style="--k:4"><span>Maintenance</span><i style="--w:74%"></i><b>74%</b></div><div class="st-in bar-row" style="--k:5"><span>Front desk</span><i style="--w:81%"></i><b>81%</b></div><div class="st-in bar-row" style="--k:6"><span>Breakfast</span><i style="--w:67%"></i><b>67%</b></div></div></div><div class="scr"><p class="mk-h">Scheduled for the right people</p><ol class="sched" style="display:grid;gap:8px"><li class="st-in " style="--k:0"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg><div><b>Daily brief</b><span>Every morning · to the GM</span></div><i class="toggle"></i></li><li class="st-in " style="--k:1"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg><div><b>Operations report</b><span>Mondays · to department heads</span></div><i class="toggle"></i></li><li class="st-in " style="--k:2"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><div><b>Reputation report</b><span>Weekly · to the GRM</span></div><i class="toggle"></i></li><li class="st-in " style="--k:3"><svg class="ic" aria-hidden="true"><use href="#i-report"/></svg><div><b>Performance summary</b><span>Monthly · to the owner</span></div><i class="toggle"></i></li></ol></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div></article>
-        <article class="slide dk"><div class="hw-copy"><p class="hw-kick"><span class="hw-num">5</span>Learn</p><h3 class="hw-title">She learns how each department works.</h3><p class="hw-text">Sia starts with the standard fix. When a department head resolves it their own way, she notices, and suggests it their way next time. They can always change it again.</p><ul class="tick-list"><li>Starts with the standard fix.</li><li>Notices how each department resolves issues.</li><li>Always editable by the team.</li></ul><div class="sc-cta"><a class="btn" data-cta href="mailto:team@avarin.ai?subject=Book%20a%20walkthrough%20of%20Sia">Book a walkthrough</a></div></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3200,3400"><div class="mk-bar"><strong>Air conditioning · room 204</strong><span class="tag tag-blue">Open</span></div><div class="mk-body"><div class="scr is-on"><p class="mk-h">Day one</p><div class="st-in recommendation" style="--k:0"><span class="recommendation-label">Suggested by Sia</span><p>Send a technician to the room today.</p></div><div class="st-in kv" style="--k:1"><span>Pattern</span><b>The standard fix</b></div></div><div class="scr"><p class="mk-h">The head of department changes it</p><div class="st-in recommendation" style="--k:0"><span class="recommendation-label">Edited by the head of Maintenance</span><p>Check the filter first. If the room is still warm, send a technician and offer a fan.</p></div><div class="st-in kv hl" style="--k:1"><span>Sia</span><b>Noted the change</b></div></div><div class="scr"><p class="mk-h">Next time: room 311</p><div class="st-in recommendation" style="--k:0"><span class="recommendation-label">Suggested by Sia, the way Maintenance does it</span><p>Check the filter first. If the room is still warm, send a technician and offer a fan.</p></div><div class="st-in kv" style="--k:1"><span>They can still</span><b>Change it again</b></div></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div></div></div></article>
-      </div>
-      <div class="tk-ctl">
-        <div class="tk-bar" aria-hidden="true"><i id="tkBar"></i></div>
-        <span class="tk-count" id="tkCount">1 / 5</span>
-        <div class="arrows">
-          <button type="button" id="tkPrev" aria-label="Previous step"><svg class="ic" aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
-          <button type="button" id="tkNext" aria-label="Next step"><svg class="ic" aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
-        </div>
-      </div>
-    </div>
+  <div class="zz">
+    <article class="zz-row" data-step="0"><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3600"><div class="mk-bar"><strong>Guest signals</strong><span class="mk-live"><i></i>Connected</span></div><div class="mk-body"><div class="scr is-on"><p class="mk-h">New in the last hour</p><ol class="source-list"><li class="st-in" style="--k:0"><span class="source-chip"><i class="dot dot-g"></i>Google review · 08:42</span><p>“AC barely cooled the room.”</p></li><li class="st-in" style="--k:1"><span class="source-chip"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg> Room QR · 204 · 09:17</span><p>“AC too warm.”</p></li><li class="st-in" style="--k:2"><span class="source-chip"><i class="dot dot-k"></i>Survey · yesterday</span><p>“Room was hot at night.”</p></li></ol></div><div class="scr"><p class="mk-h">Filtered view</p><div class="st-in kv" style="--k:0"><span>Platform</span><b>Google · Booking.com</b></div><div class="st-in kv" style="--k:1"><span>Rating</span><b>1 to 3 stars</b></div><div class="st-in kv" style="--k:2"><span>Language</span><b>English · Arabic</b></div><div class="st-in kv hl" style="--k:3"><span>Matching reviews</span><b>12</b></div></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div><div class="hw-copy"><p class="hw-kick"><span class="hw-num">1</span>Listen</p><h3 class="hw-title">Every review, in one place.</h3><p class="hw-text">Reviews from your connected sites, in-room QR notes and surveys, all in one record with the guest's own words.</p><ul class="tick-list"><li>Google, Tripadvisor, Booking.com and Expedia, where connected.</li><li>Filter by platform, language and rating.</li><li>Guest words stay with every item.</li></ul></div></article>
+    <article class="zz-row flip" data-step="1"><div class="hw-copy"><p class="hw-kick"><span class="hw-num">2</span>Guests</p><h3 class="hw-title">Guests can tell you from the room.</h3><p class="hw-text">Printable QR cards let guests tap Good or Not Good in seconds. Unhappy guests can explain, and anything urgent goes to operations.</p><ul class="tick-list"><li>One card per room or spot.</li><li>Both paths always open.</li><li>Surveys add follow-up questions.</li></ul></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3600"><div class="mk-bar"><strong>QR feedback</strong><span class="tag">Room 204</span></div><div class="mk-body"><div class="scr is-on"><p class="mk-h">Guest view</p><p class="issue-title" style="margin-top:6px">How Was Your Stay?</p><div class="tag-group" style="margin-top:14px"><span class="chip chip-fill">Good</span><span class="chip">Not Good</span></div><div class="recommendation" style="margin-top:14px"><span class="recommendation-label">Not Good</span><p>Tell Us What Happened. The hotel team receives it.</p></div></div><div class="scr"><p class="mk-h">Feedback inbox</p><ol class="inbox" style="margin-top:0"><li class="st-in inbox-row" style="--k:0"><span class="tag tag-red">Not Good</span><p>“The room smelled musty when we arrived.”</p><span class="when">Room 1204</span></li><li class="st-in inbox-row" style="--k:1"><span class="tag tag-green">Good</span><p>No comment left.</p><span class="when">Room 808</span></li></ol><div class="st-in kv hl" style="--k:2"><span>Room 1204</span><b>Escalated to operations</b></div></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div></article>
+    <article class="zz-row" data-step="2"><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3600,3600"><div class="mk-bar"><strong>Today</strong><span class="tag">Last 30 days</span></div><div class="mk-body"><div class="scr is-on"><div class="stats"><div class="st-in stat" style="--k:0"><b>48</b><span>reviews</span></div><div class="st-in stat" style="--k:1"><b>6</b><span>negative</span></div><div class="st-in stat" style="--k:2"><b>4.32</b><span>average rating</span></div></div><p class="mk-h" style="margin-top:6px">Where reviews come from</p><div class="bars"><div class="st-in bar-row" style="--k:3"><span>Booking.com</span><i style="--w:44%"></i><b>44%</b></div><div class="st-in bar-row" style="--k:4"><span>Google</span><i style="--w:29%"></i><b>29%</b></div><div class="st-in bar-row" style="--k:5"><span>Tripadvisor</span><i style="--w:18%"></i><b>18%</b></div></div></div><div class="scr"><p class="mk-h">Your rating, against tracked hotels</p><div class="st-in kv hl" style="--k:0"><span>Your hotel</span><b>4.32</b></div><div class="st-in kv" style="--k:1"><span>Luma Central Hotel</span><b>4.28</b></div><div class="st-in kv" style="--k:2"><span>Orchid Lane Suites</span><b>4.41</b></div><div class="st-in kv" style="--k:3"><span>Marina Grand</span><b>4.19</b></div></div><div class="scr"><p class="mk-h">What is holding the rating down</p><div class="bars"><div class="st-in bar-row" style="--k:0"><span>Breakfast queue</span><i style="--w:100%"></i><b>5</b></div><div class="st-in bar-row" style="--k:1"><span>Check-in</span><i style="--w:60%"></i><b>3</b></div><div class="st-in bar-row" style="--k:2"><span>Lift wait</span><i style="--w:40%"></i><b>2</b></div></div><p class="mk-h" style="margin-top:10px">Mentions in reviews, last 30 days</p></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div></div></div><div class="hw-copy"><p class="hw-kick"><span class="hw-num">3</span>Understand</p><h3 class="hw-title">See where your reputation stands.</h3><p class="hw-text">Reviews, ratings and sources for any date range, next to up to three tracked competitors. See what is holding your rating down.</p><ul class="tick-list"><li>Trends and sources by date range.</li><li>Up to three tracked competitors.</li><li>Drivers explain, they don't prove cause.</li></ul></div></article>
+    <article class="zz-row flip" data-step="3"><div class="hw-copy"><p class="hw-kick"><span class="hw-num">4</span>Respond</p><h3 class="hw-title">Drafted for you. Approved by you. Posted by you.</h3><p class="hw-text">Sia drafts each reply in the guest's language. Edit it, approve it, and copy it to the review site. A person always posts.</p><ul class="tick-list"><li>Replies in 31 languages.</li><li>Tone and length set in Brand Voice.</li><li>You choose which high ratings auto-approve.</li></ul></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3600"><div class="mk-bar"><strong>Review inbox</strong><span class="tag">6 drafts</span></div><div class="mk-body"><div class="scr is-on"><div class="tag-group"><span class="chip chip-fill">Current</span><span class="chip">Flagged</span><span class="chip">Approved</span></div><p class="rev-quote" style="margin-top:12px"><span class="stars" style="--r:2" role="img" aria-label="2 out of 5"></span><span>“The breakfast queue was long and the welcome felt rushed.”</span></p><div class="draft-panel"><div class="dp-head"><span class="sia-answer-label">Sia's draft reply</span><span class="tag">To approve</span></div><p>Thank you for telling us about the breakfast wait. We're sorry the start of your day felt rushed.</p><div class="draft-actions"><span class="chip chip-fill">Approve</span><span class="chip">Enhance with AI</span></div></div></div><div class="scr"><p class="mk-h">Approved · ready to post</p><div class="recommendation" style="margin-top:0"><span class="recommendation-label">Reply approved <span class="chip chip-fill">Copy &amp; Post</span></span><p>Thank you for telling us about the breakfast wait. We're sorry the start of your day felt rushed.</p></div><div class="st-in kv" style="--k:1"><span>Posted by</span><b>Your team</b></div><div class="st-in kv hl" style="--k:2"><span>Auto-approve</span><b>Ratings of 5 stars and up</b></div></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div></article>
+    <article class="zz-row" data-step="4"><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="3800"><div class="mk-bar"><strong>Air conditioning · room 204</strong><span class="tag tag-red">Act now</span></div><div class="mk-body"><div class="scr is-on"><div class="tag-group"><span class="tag tag-blue">Open</span></div><p class="issue-title" style="margin-top:2px">Air conditioning not cooling, room 204</p><div class="evidence-list" style="margin-top:0"><span class="source-chip"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg> Room QR · 09:17</span><span class="source-chip">Google · 08:42</span></div><div class="kv" style="margin-top:12px"><span>Department</span><b>Maintenance</b></div><div class="recommendation" style="margin-top:12px"><span class="recommendation-label">Recommended action <span class="chip chip-fill">Accept</span></span><p>Send an engineer today.</p></div></div><div class="scr"><p class="mk-h">Every step, on the record</p><ol class="tl"><li class="st-in" style="--k:0"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Opened from a room QR note</b><span>09:17 · evidence attached</span></div></li><li class="st-in" style="--k:1"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Reported to Maintenance</b><span>09:18 · Act now</span></div></li><li class="st-in" style="--k:2"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>In progress</b><span>11:40</span></div></li><li class="st-in" style="--k:3"><span class="tl-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Solved · note added</b><span>16:05 · unit replaced</span></div></li></ol></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div><div class="hw-copy"><p class="hw-kick"><span class="hw-num">5</span>Fix</p><h3 class="hw-title">Every problem has an owner.</h3><p class="hw-text">Sia turns each problem into an issue with the evidence, an urgency and a suggested action, then reports it to the department that owns the fix.</p><ul class="tick-list"><li>Act now, Investigate or Monitor.</li><li>Accept or edit the suggested action.</li><li>Tracked from Open to Solved.</li></ul></div></article>
+    <article class="zz-row flip" data-step="5"><div class="hw-copy"><p class="hw-kick"><span class="hw-num">6</span>Report</p><h3 class="hw-title">She keeps you in the loop.</h3><p class="hw-text">Read the daily briefing, or schedule performance, staff and operational reports by email or Telegram. Share any report as a read-only link.</p><ul class="tick-list"><li>Daily and monthly performance reports.</li><li>Charts open the reviews behind them.</li><li>Voice briefings on Plus.</li></ul></div><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="4200"><div class="mk-bar"><strong>Monthly performance</strong><span class="tag">Ready</span></div><div class="mk-body"><div class="scr is-on"><p class="mk-h">This month at a glance</p><div class="stats"><div class="st-in stat" style="--k:0"><b>48</b><span>reviews</span></div><div class="st-in stat" style="--k:1"><b>6</b><span>negative</span></div><div class="st-in stat" style="--k:2"><b>4.32</b><span>average rating</span></div></div><p class="mk-h" style="margin-top:6px">Topics guests raised most</p><div class="bars"><div class="st-in bar-row" style="--k:3"><span>Breakfast</span><i style="--w:80%"></i><b>4</b></div><div class="st-in bar-row" style="--k:4"><span>Check-in</span><i style="--w:60%"></i><b>3</b></div><div class="st-in bar-row" style="--k:5"><span>Air conditioning</span><i style="--w:40%"></i><b>2</b></div></div></div><div class="scr"><p class="mk-h">Scheduled for the right people</p><ol class="sched" style="display:grid;gap:8px"><li class="st-in" style="--k:0"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg><div><b>Daily performance</b><span>Every morning · to the GM</span></div><i class="toggle"></i></li><li class="st-in" style="--k:1"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg><div><b>Operational issues</b><span>Mondays · to department heads</span></div><i class="toggle"></i></li><li class="st-in" style="--k:2"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><div><b>Staff</b><span>Monthly · sent by Telegram</span></div><i class="toggle"></i></li></ol></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div></article>
+    <article class="zz-row" data-step="6"><div class="stage hw-stage"><div class="stage-clip" aria-hidden="true"></div><div class="panel mock" data-ui data-times="4200"><div class="mk-bar"><strong>Ask Sia</strong><span class="tag">Property record</span></div><div class="mk-body"><div class="scr is-on" style="--bot:62px"><div class="thread"><p class="st-in bub bub-u" style="--k:0">Which open issues should I look at first?</p><div class="st-in bub bub-s" style="--k:2"><span class="sia-answer-label">Sia</span>Start with the guest-room air-conditioning issue, then Friday's slow check-in. The AC issue is the most urgent, and three reviews mention the same problem.</div></div></div><div class="scr" style="--bot:62px"><p class="mk-h">Evidence behind the answer</p><ol class="inbox" style="margin-top:0"><li class="st-in inbox-row" style="--k:0"><span class="stars" style="--r:2" role="img" aria-label="2 out of 5"></span><span class="src src-g">G</span><p>“AC barely cooled the room.”</p><span class="when">08:42</span></li><li class="st-in inbox-row inbox-issue" style="--k:1"><span class="src src-q"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg></span><div class="ir"><strong>Issue · AC, room 204</strong><span>Open · Act now</span></div><span class="tag tag-red">Act now</span></li><li class="st-in inbox-row inbox-issue" style="--k:2"><span class="src src-k"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg></span><div class="ir"><strong>Survey · slow check-in</strong><span>Friday evenings · 4 mentions</span></div><span class="tag">Investigate</span></li></ol></div></div><div class="mk-dots" aria-hidden="true"><i class="on"></i><i></i></div></div></div><div class="hw-copy"><p class="hw-kick"><span class="hw-num">7</span>Ask</p><h3 class="hw-title">Ask her anything about your hotel.</h3><p class="hw-text">Ask by text or voice. Sia answers from your reviews, issues, surveys and property profile, and shows the evidence. She only changes something when you ask.</p><ul class="tick-list"><li>Answers with the evidence behind them.</li><li>Text, or voice with read-aloud.</li><li>Changes only on request.</li></ul><div class="sc-cta"><a class="btn" data-cta href="mailto:team@avarin.ai?subject=Book%20a%20walkthrough%20of%20Sia">Book a walkthrough</a></div></div></article>
   </div>
 </section>
 
@@ -206,21 +189,22 @@
 <!-- YOUR TEAM -->
 <section class="sec team" id="team" aria-labelledby="teamH">
   <div class="team-head">
-    <h2 class="h-sec rv" id="teamH">One assistant for the whole team.</h2>
+    <h2 class="h-sec rv" id="teamH">Built for the GM, and the whole team.</h2>
+    <p class="body rv">Owners see the whole picture. Each person on the team gets the part that's theirs.</p>
   </div>
   <div class="row" id="row" tabindex="0" aria-label="Who Sia works with">
 
-    <figure class="pnl is-on" data-name="The GM or owner" data-text="Starts the day with what needs attention. Watches reputation and service quality, and tracks every issue to done.">
+    <figure class="pnl is-on" data-name="The GM or owner" data-text="Starts your day with what needs you most. Keeps an eye on your reputation and guest happiness, and follows every problem until it's solved.">
       <div class="panel pnl-card" data-ui>
         <div class="panel-head"><div><span class="sia sia-sm" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="currentColor"/><circle cx="16" cy="7" r="3.4" fill="#fff"/></svg></span><div><strong>Sia's briefing</strong><span class="sub">Today's brief</span></div></div><span class="tag">GM</span></div>
-        <ul class="activity" aria-label="Since midnight"><li><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><b>14</b> reviews read</li><li><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg><b>2</b> issues opened</li><li><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><b>6</b> drafts</li></ul>
-        <ul class="mini-list"><li><span>Review replies</span><span class="tag">6 drafts · To approve</span></li><li><span>Room 204 · air conditioning</span><span class="tag tag-red">High priority</span></li><li><span>Slow check-in on Fridays</span><span class="tag tag-blue">Open</span></li></ul>
+        <ul class="activity" aria-label="Since midnight"><li><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><b>14</b> comments read</li><li><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg><b>2</b> issues opened</li><li><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><b>3</b> drafts</li></ul>
+        <ul class="mini-list"><li><span>Reply drafts</span><span class="tag">3 drafts · To approve</span></li><li><span>Room 204 · air conditioning</span><span class="tag tag-red">Act now</span></li><li><span>Slow check-in on Fridays</span><span class="tag tag-blue">Open</span></li></ul>
       </div>
     </figure>
 
-    <figure class="pnl" data-name="Department heads" data-text="Each issue arrives with the evidence and a suggested resolution. When a head resolves it their own way, Sia notices the pattern.">
+    <figure class="pnl" data-name="Department heads" data-text="Every problem arrives with the evidence and a suggested action. Accept it, or change it your way.">
       <div class="panel pnl-card" data-ui>
-        <div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">High priority</span></div>
+        <div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">Act now</span></div>
         <p class="issue-title">Air conditioning not cooling, room 204</p>
         <div class="evidence-list"><span class="source-chip"><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg>Room QR · 09:17</span><span class="source-chip">Google · 08:42</span></div>
         <div class="recommendation"><span class="recommendation-label">Recommended action <span class="chip">Edit</span></span><p>Send an engineer today.</p></div>
@@ -228,15 +212,15 @@
       </div>
     </figure>
 
-    <figure class="pnl" data-name="The GRM" data-text="Replies are drafted for them. They read, approve, or say what to change, and she revises. A person posts every reply.">
+    <figure class="pnl" data-name="The GRM" data-text="Replies are drafted for you. Read them, approve them, or tell Sia what to change and she'll revise. A person posts every reply.">
       <div class="panel pnl-card" data-ui>
-        <div class="panel-head"><div><strong>Review inbox</strong><span class="sub">6 drafts ready</span></div><span class="tag">GRM</span></div>
+        <div class="panel-head"><div><strong>Review inbox</strong><span class="sub">3 drafts ready</span></div><span class="tag">GRM</span></div>
         <ol class="inbox"><li class="inbox-row is-selected"><span class="stars" style="--r:2" role="img" aria-label="2 out of 5"></span><span class="src src-t">T</span><p>“The breakfast queue was long and the welcome felt rushed.”</p><span class="when">08:42</span></li><li class="inbox-row"><span class="stars" style="--r:4" role="img" aria-label="4 out of 5"></span><span class="src src-b">B</span><p>“Lovely room, though the lift wait was long.”</p><span class="when">Yesterday</span></li></ol>
         <div class="draft-panel is-static"><div class="dp-head"><span class="sia-answer-label">Sia's draft reply</span><span class="tag">To approve</span></div><p>Thank you for telling us about the breakfast wait. We're sorry the start of your day felt rushed. Our supervisor is reviewing the queue and welcome.</p><div class="draft-actions"><span class="chip chip-fill">Approve</span><span class="chip">Change this</span></div></div>
       </div>
     </figure>
 
-    <figure class="pnl" data-name="Anyone, any hour" data-text="Ask her what needs attention. She answers with the reasons and the evidence behind them, at any hour.">
+    <figure class="pnl" data-name="Anyone, anytime" data-text="Ask her what needs attention. She answers with the reasons and the evidence behind them, whenever you ask.">
       <div class="panel pnl-card" data-ui>
         <div class="panel-head"><div><span class="sia sia-sm" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="currentColor"/><circle cx="16" cy="7" r="3.4" fill="#fff"/></svg></span><div><strong>Ask Sia</strong><span class="sub">Property record</span></div></div></div>
         <p class="chat-question">Which three open issues should I look at first?</p>
@@ -248,7 +232,7 @@
   <div class="team-foot">
     <div class="team-copy" aria-live="polite">
       <h3 id="pName">The GM or owner</h3>
-      <p id="pText">Starts the day with what needs attention. Watches reputation and service quality, and tracks every issue to done.</p>
+      <p id="pText">Starts your day with what needs you most. Keeps an eye on your reputation and guest happiness, and follows every problem until it's solved.</p>
     </div>
     <div class="arrows">
       <button type="button" id="prev" aria-label="Previous"><svg class="ic" aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
@@ -271,9 +255,9 @@
     </div>
     <div class="stage learn-stage">
       <div class="panel learning-panel" id="learning-panel" role="tabpanel" aria-labelledby="learning-tab-1" data-ui>
-        <div class="learning-state" data-learning-state="0"><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">High priority</span></div><p class="issue-title">Air conditioning not cooling, room 204</p><div class="recommendation"><span class="recommendation-label">Suggested by Sia</span><p>Send a technician to the room today.</p></div></div>
-        <div class="learning-state" data-learning-state="1" hidden><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">High priority</span></div><p class="issue-title">Air conditioning not cooling, room 204</p><div class="recommendation"><span class="recommendation-label">Edited by the head of Maintenance</span><p>Check the filter first. If the room is still warm, send a technician and offer a fan.</p></div></div>
-        <div class="learning-state" data-learning-state="2" hidden><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">High priority</span></div><p class="issue-title">Air conditioning not cooling, room 311</p><div class="recommendation"><span class="recommendation-label">Suggested by Sia, the way Maintenance did it</span><p>Check the filter first. If the room is still warm, send a technician and offer a fan.</p></div></div>
+        <div class="learning-state" data-learning-state="0"><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">Act now</span></div><p class="issue-title">Air conditioning not cooling, room 204</p><div class="recommendation"><span class="recommendation-label">Suggested by Sia</span><p>Send a technician to the room today.</p></div></div>
+        <div class="learning-state" data-learning-state="1" hidden><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">Act now</span></div><p class="issue-title">Air conditioning not cooling, room 204</p><div class="recommendation"><span class="recommendation-label">Edited by the head of Maintenance</span><p>Check the filter first. If the room is still warm, send a technician and offer a fan.</p></div></div>
+        <div class="learning-state" data-learning-state="2" hidden><div class="tag-group"><span class="tag tag-blue">Open</span><span class="tag tag-red">Act now</span></div><p class="issue-title">Air conditioning not cooling, room 311</p><div class="recommendation"><span class="recommendation-label">Suggested by Sia, the way Maintenance did it</span><p>Check the filter first. If the room is still warm, send a technician and offer a fan.</p></div></div>
       </div>
       <p class="stage-caption">Sample hotel · illustrative data</p>
     </div>
@@ -283,64 +267,64 @@
 <!-- PRICING -->
 <section class="sec pricing" id="pricing" aria-labelledby="priceH">
   <div class="price-head">
-    <h2 class="h-sec rv" id="priceH">Pricing, per property.</h2>
-    <p class="body rv">Base and Plus are priced per property. Tell us about your hotel or group and we'll help you choose.</p>
+    <h2 class="h-sec rv" id="priceH">Simple pricing, per property.</h2>
+    <p class="body rv">Base and Plus are priced per hotel. Tell us about your hotel or group and we'll help you pick.</p>
   </div>
   <div class="plans">
     <article class="plan-card rv">
       <h3>Base</h3>
-      <p class="pc-for">For individual properties</p>
-      <p class="pc-fig"><b>300</b><span>AI replies a month</span></p>
+      <p class="pc-for">For single hotels</p>
+      <p class="pc-fig"><b>300</b><span>AI review replies a month</span></p>
       <ul>
         <li>1 tracked competitor per property</li>
-        <li>Single-property command center</li>
-        <li>Review inbox and translation</li>
-        <li>QR feedback and guest surveys</li>
-        <li>Issues created, reported and tracked</li>
+        <li>Today: your daily overview for the hotel</li>
+        <li>Review inbox, drafts and translation</li>
+        <li>QR cards, QR feedback and guest surveys</li>
+        <li>Problems turned into owned issues, tracked to done</li>
         <li>Standard performance reporting</li>
-        <li>Sia by voice</li>
+        <li>Ask Sia by text or voice</li>
       </ul>
-      <p class="pc-price">Contact sales for current per-property pricing.</p>
-      <a class="btn" data-plan-cta href="mailto:team@avarin.ai?subject=Talk%20to%20sales%20about%20Sia">Talk to sales</a>
+      <p class="pc-price">Get in touch for current per-property pricing.</p>
+      <a class="btn" data-plan-cta href="mailto:team@avarin.ai?subject=Talk%20to%20sales%20about%20Sia">Talk to our team</a>
     </article>
     <article class="plan-card plan-card-plus rv" style="--d:80ms">
       <h3>Plus</h3>
       <p class="pc-for">For growing groups</p>
-      <p class="pc-fig"><b>1,000</b><span>AI replies a month</span></p>
+      <p class="pc-fig"><b>1,000</b><span>AI review replies a month</span></p>
       <ul>
         <li>Everything in Base</li>
         <li>3 tracked competitors per property</li>
-        <li>Group analytics and portfolio momentum</li>
-        <li>Cross-property questions to Sia</li>
+        <li>Group analytics and trends across your hotels</li>
+        <li>Compare your hotels with Sia</li>
         <li>Scheduled performance, staff and operational reports</li>
         <li>Voice briefings</li>
-        <li>Organisation roles and portfolio controls</li>
+        <li>Roles and access controls across your group</li>
       </ul>
-      <p class="pc-price">Contact sales for current per-property pricing.</p>
-      <a class="btn btn-light" data-plan-cta href="mailto:team@avarin.ai?subject=Talk%20to%20sales%20about%20Sia">Talk to sales</a>
+      <p class="pc-price">Get in touch for current per-property pricing.</p>
+      <a class="btn btn-light" data-plan-cta href="mailto:team@avarin.ai?subject=Talk%20to%20sales%20about%20Sia">Talk to our team</a>
     </article>
   </div>
   <aside class="walkthrough rv" aria-labelledby="walkH">
     <div class="wt-copy">
       <p class="eyebrow">The walkthrough</p>
       <h3 id="walkH">What happens when you book a walkthrough</h3>
-      <p>No pitch deck. We look at a hotel like yours, show you what Sia would surface, and help you choose the plan that fits.</p>
+      <p>No pitch deck. We look at a hotel like yours and show what Sia would catch.</p>
     </div>
     <ol class="wt-steps">
       <li class="wt-step">
         <span class="wt-num">1</span>
-        <b>Tell us about your property.</b>
-        <p>Your hotel or group, and the reviews you already get.</p>
+        <b>Tell us about your hotel.</b>
+        <p>Your hotel or group, and the kinds of reviews you get.</p>
       </li>
       <li class="wt-step">
         <span class="wt-num">2</span>
-        <b>We show Sia on a hotel like yours.</b>
-        <p>A short walkthrough, with the issues she would surface.</p>
+        <b>We show you Sia at work.</b>
+        <p>A short walkthrough on a hotel like yours.</p>
       </li>
       <li class="wt-step">
         <span class="wt-num">3</span>
-        <b>You decide, with your team.</b>
-        <p>We help you choose the plan that fits.</p>
+        <b>You decide, together with your team.</b>
+        <p>Setup covers your hotel, channels, reply settings and reports. Our team checks each hotel before it goes live.</p>
       </li>
     </ol>
   </aside>
@@ -349,16 +333,16 @@
 <!-- TRUST -->
 <section class="sec trust" id="trust" aria-labelledby="trustH">
   <div class="trust-head rv">
-    <h2 class="h-sec" id="trustH">How Sia works inside your rules.</h2>
-    <p class="body">Sia is useful because she is bounded. Your team keeps the last word, and every action stays visible.</p>
+    <h2 class="h-sec" id="trustH">Still deciding? Here's what stays in your hands.</h2>
+    <p class="body">Your team has the final say, and you can see everything Sia does.</p>
   </div>
   <div class="rulebook rv">
     <ol class="rules">
       <li class="rule">
         <span class="rule-num">01</span>
         <div class="rule-copy">
-          <h3>Your team approves first.</h3>
-          <p>Every reply is drafted for your team. Nothing goes out until someone approves it — and a person posts every reply.</p>
+          <h3>You stay in charge.</h3>
+          <p>Sia suggests, your team decides. A person always posts every reply.</p>
         </div>
         <div class="rule-proof" data-approve>
           <p class="rp-label">Who approves replies?</p>
@@ -372,14 +356,14 @@
               <span>Positive reviews are approved automatically</span>
             </label>
           </div>
-          <p class="rp-output" data-approve-output>Every reply waits for your team. A person posts it.</p>
+          <p class="rp-output" data-approve-output>Your team checks every reply. A person posts it.</p>
         </div>
       </li>
       <li class="rule">
         <span class="rule-num">02</span>
         <div class="rule-copy">
-          <h3>Every issue keeps its history.</h3>
-          <p>Evidence, owner, urgency and every step stay attached to the issue.</p>
+          <h3>Every issue traces back to its source.</h3>
+          <p>Open any issue to see each review, QR note and survey it came from, and every step since.</p>
         </div>
         <div class="rule-proof">
           <p class="rp-label">Issue history · room 204</p>
@@ -394,8 +378,8 @@
       <li class="rule">
         <span class="rule-num">03</span>
         <div class="rule-copy">
-          <h3>Access stays inside the property.</h3>
-          <p>Property teams see their hotel. Group leaders see only the portfolio they are allowed to see.</p>
+          <h3>Everyone sees the right things.</h3>
+          <p>Property teams see their hotel. Group leaders see only their portfolio.</p>
         </div>
         <div class="rule-proof">
           <p class="rp-label">Access scope</p>
@@ -408,14 +392,14 @@
       <li class="rule">
         <span class="rule-num">04</span>
         <div class="rule-copy">
-          <h3>Answers come from your property.</h3>
-          <p>Sia works from the property knowledge you approve, with the evidence behind each answer.</p>
+          <h3>Every answer shows its evidence.</h3>
+          <p>Sia answers from your hotel's records and shows where each answer came from.</p>
         </div>
         <div class="rule-proof">
           <p class="rp-label">Ask Sia</p>
           <div class="rp-answer">
             <p class="rp-q">Which issue needs me first?</p>
-            <p class="rp-a"><span class="sia-answer-label">Sia</span> The AC issue in room 204 is open and high priority.</p>
+            <p class="rp-a"><span class="sia-answer-label">Sia</span> The AC issue in room 204 is open and marked Act now.</p>
             <div class="evidence-list">
               <span class="source-chip">Room QR · 204</span>
               <span class="source-chip">3 linked reports</span>
@@ -426,17 +410,17 @@
       <li class="rule">
         <span class="rule-num">05</span>
         <div class="rule-copy">
-          <h3>Sia reads every channel.</h3>
-          <p>Google, Tripadvisor, Booking.com, Expedia, in-room QR notes and guest surveys land in one property record. Nothing to forward, nothing lost.</p>
+          <h3>Your channels, in one record.</h3>
+          <p>Reviews, QR notes and surveys land in one record. A problem raised in several places stays one problem.</p>
         </div>
         <div class="rule-proof">
             <ul class="reads-list rp-channels" aria-label="Feedback channels Sia reads">
-            <li class="rc rc-g" tabindex="0" data-tip="Reads every Google review, and drafts the reply for your team to approve."><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span class="vh">Google</span></li>
-            <li class="rc rc-t" tabindex="0" data-tip="Reads every Tripadvisor review, and drafts the reply for your team to approve."><svg viewBox="0 0 713.496 713.496" aria-hidden="true" focusable="false"><circle fill="#34E0A1" cx="356.749" cy="356.748" r="356.748"/><path fill="#000" d="M577.095,287.152l43.049-46.836h-95.465c-47.792-32.646-105.51-51.659-167.931-51.659c-62.342,0-119.899,19.054-167.612,51.659H93.432l43.049,46.836c-26.387,24.075-42.929,58.754-42.929,97.259c0,72.665,58.914,131.578,131.579,131.578c34.519,0,65.968-13.313,89.446-35.077l42.172,45.919l42.172-45.879c23.478,21.764,54.887,35.037,89.406,35.037c72.665,0,131.658-58.913,131.658-131.578C620.024,345.866,603.483,311.188,577.095,287.152z M225.17,473.458c-49.188,0-89.047-39.859-89.047-89.047s39.86-89.048,89.047-89.048c49.187,0,89.047,39.86,89.047,89.048S274.357,473.458,225.17,473.458z M356.788,381.82c0-58.595-42.61-108.898-98.853-130.383c30.413-12.716,63.776-19.771,98.813-19.771s68.439,7.055,98.853,19.771C399.399,272.962,356.788,323.226,356.788,381.82z M488.367,473.458c-49.188,0-89.048-39.859-89.048-89.047s39.86-89.048,89.048-89.048s89.047,39.86,89.047,89.048S537.554,473.458,488.367,473.458z M488.367,337.694c-25.79,0-46.677,20.887-46.677,46.677c0,25.789,20.887,46.676,46.677,46.676c25.789,0,46.676-20.887,46.676-46.676C535.042,358.621,514.156,337.694,488.367,337.694z M271.846,384.411c0,25.789-20.887,46.676-46.676,46.676s-46.676-20.887-46.676-46.676c0-25.79,20.887-46.677,46.676-46.677C250.959,337.694,271.846,358.621,271.846,384.411z"/></svg><span class="vh">Tripadvisor</span></li>
-            <li class="rc rc-b" tabindex="0" data-tip="Reads every Booking.com review, and drafts the reply for your team to approve."><svg viewBox="-0.092 0.015 2732.125 2671.996" aria-hidden="true" focusable="false"><path fill="#0c3b7c" d="m2732.032 513.03c0-283.141-229.978-513.015-513.118-513.015h-1705.89c-283.138 0-513.116 229.874-513.116 513.015v1645.965c0 283.066 229.978 513.016 513.118 513.016h1705.889c283.14 0 513.118-229.95 513.118-513.016z"/><path fill="#0c3b7c" d="m.001 1659.991h1364.531v1012.019h-1364.53z"/><path fill="#fff" d="m1241.6 1768.638-220.052-.22v-263.12c0-56.22 21.808-85.48 69.917-92.165h150.136c107.068 0 176.328 67.507 176.328 176.766 0 112.219-67.507 178.63-176.328 178.739zm-220.052-709.694v-69.26c0-60.602 25.643-89.424 81.862-93.15h112.657c96.547 0 154.41 57.753 154.41 154.52 0 73.643-39.671 159.67-150.903 159.67h-198.026zm501.037 262.574-39.78-22.356 34.74-29.699c40.437-34.74 108.163-112.876 108.163-247.67 0-206.464-160.109-339.614-407.888-339.614h-282.738v-.11h-32.219c-73.424 2.74-132.273 62.466-133.04 136.329v1171.499h453.586c275.396 0 453.148-149.917 453.148-382.135 0-125.04-57.424-231.889-153.972-286.244"/><path fill="#00bafc" d="m1794.688 1828.066c0-89.492 72.178-161.894 161.107-161.894 89.154 0 161.669 72.402 161.669 161.894 0 89.379-72.515 161.894-161.67 161.894-88.928 0-161.106-72.515-161.106-161.894"/></svg><span class="vh">Booking.com</span></li>
-            <li class="rc rc-e" tabindex="0" data-tip="Reads every Expedia review, and drafts the reply for your team to approve."><svg viewBox="76.41 130.32 201 201" aria-hidden="true" focusable="false"><g transform="matrix(1 0 0 1 76.408318 130.171539)"><path fill="#202843" d="M 195.58594,133.10156 C 213.51172,80.585938 185.46875,23.484375 132.95312,5.558594 80.4375,-12.363281 23.335938,15.679688 5.414062,68.191406 -12.511719,120.70703 15.53125,177.80859 68.046875,195.73437 120.5625,213.65625 177.66406,185.61328 195.58594,133.10156"/><path fill="#ffc94c" d="M 15.425781,154.10547 C 31.0625,146.64453 84.28125,120.52344 94.769531,114.375 c 8.613279,-5.01953 21.441409,-12.42187 21.441409,-12.42187 l 5.4414,11.08984 8.3086,54.65234 6.34765,-3.66406 4.21875,-76.335938 c 12.82422,-8.015624 24.1211,-15.816406 35.94532,-23.976562 4.33593,-2.992188 8.74218,-6.035156 13.3164,-9.152344 -1.44922,-2.800781 -3.02734,-5.53125 -4.72656,-8.175781 -4.98828,2.402344 -9.82422,4.695313 -14.57813,6.953125 C 157.5,59.503906 145.09766,65.386719 131.74219,72.480469 l -68.214846,-34.507813 -6.347656,3.664063 43.175782,34.519531 6.87109,10.238281 0.0117,0.01953 c 0,0 -12.824218,7.40625 -21.480468,12.359376 -10.566406,6.007813 -59.808593,39.042973 -74.082031,48.847653 1.171875,2.21094 2.421875,4.3711 3.75,6.48438"/></g></svg><span class="vh">Expedia</span></li>
-            <li class="rc rc-q" tabindex="0" data-tip="Room QR notes arrive with the room attached, and become owned issues."><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg><span class="vh">In-room QR codes</span></li>
-            <li class="rc rc-s" tabindex="0" data-tip="Survey answers link straight to the issue they describe."><svg class="ic" aria-hidden="true"><use href="#i-survey"/></svg><span class="vh">Guest surveys</span></li>
+            <li class="rc rc-g" tabindex="0" data-tip="Google reviews land in your inbox, with drafts for your team to approve."><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span class="vh">Google</span></li>
+            <li class="rc rc-t" tabindex="0" data-tip="Tripadvisor reviews land in your inbox, with drafts for your team to approve."><svg viewBox="0 0 713.496 713.496" aria-hidden="true" focusable="false"><circle fill="#34E0A1" cx="356.749" cy="356.748" r="356.748"/><path fill="#000" d="M577.095,287.152l43.049-46.836h-95.465c-47.792-32.646-105.51-51.659-167.931-51.659c-62.342,0-119.899,19.054-167.612,51.659H93.432l43.049,46.836c-26.387,24.075-42.929,58.754-42.929,97.259c0,72.665,58.914,131.578,131.579,131.578c34.519,0,65.968-13.313,89.446-35.077l42.172,45.919l42.172-45.879c23.478,21.764,54.887,35.037,89.406,35.037c72.665,0,131.658-58.913,131.658-131.578C620.024,345.866,603.483,311.188,577.095,287.152z M225.17,473.458c-49.188,0-89.047-39.859-89.047-89.047s39.86-89.048,89.047-89.048c49.187,0,89.047,39.86,89.047,89.048S274.357,473.458,225.17,473.458z M356.788,381.82c0-58.595-42.61-108.898-98.853-130.383c30.413-12.716,63.776-19.771,98.813-19.771s68.439,7.055,98.853,19.771C399.399,272.962,356.788,323.226,356.788,381.82z M488.367,473.458c-49.188,0-89.048-39.859-89.048-89.047s39.86-89.048,89.048-89.048s89.047,39.86,89.047,89.048S537.554,473.458,488.367,473.458z M488.367,337.694c-25.79,0-46.677,20.887-46.677,46.677c0,25.789,20.887,46.676,46.677,46.676c25.789,0,46.676-20.887,46.676-46.676C535.042,358.621,514.156,337.694,488.367,337.694z M271.846,384.411c0,25.789-20.887,46.676-46.676,46.676s-46.676-20.887-46.676-46.676c0-25.79,20.887-46.677,46.676-46.677C250.959,337.694,271.846,358.621,271.846,384.411z"/></svg><span class="vh">Tripadvisor</span></li>
+            <li class="rc rc-b" tabindex="0" data-tip="Booking.com reviews land in your inbox, with drafts for your team to approve."><svg viewBox="-0.092 0.015 2732.125 2671.996" aria-hidden="true" focusable="false"><path fill="#0c3b7c" d="m2732.032 513.03c0-283.141-229.978-513.015-513.118-513.015h-1705.89c-283.138 0-513.116 229.874-513.116 513.015v1645.965c0 283.066 229.978 513.016 513.118 513.016h1705.889c283.14 0 513.118-229.95 513.118-513.016z"/><path fill="#0c3b7c" d="m.001 1659.991h1364.531v1012.019h-1364.53z"/><path fill="#fff" d="m1241.6 1768.638-220.052-.22v-263.12c0-56.22 21.808-85.48 69.917-92.165h150.136c107.068 0 176.328 67.507 176.328 176.766 0 112.219-67.507 178.63-176.328 178.739zm-220.052-709.694v-69.26c0-60.602 25.643-89.424 81.862-93.15h112.657c96.547 0 154.41 57.753 154.41 154.52 0 73.643-39.671 159.67-150.903 159.67h-198.026zm501.037 262.574-39.78-22.356 34.74-29.699c40.437-34.74 108.163-112.876 108.163-247.67 0-206.464-160.109-339.614-407.888-339.614h-282.738v-.11h-32.219c-73.424 2.74-132.273 62.466-133.04 136.329v1171.499h453.586c275.396 0 453.148-149.917 453.148-382.135 0-125.04-57.424-231.889-153.972-286.244"/><path fill="#00bafc" d="m1794.688 1828.066c0-89.492 72.178-161.894 161.107-161.894 89.154 0 161.669 72.402 161.669 161.894 0 89.379-72.515 161.894-161.67 161.894-88.928 0-161.106-72.515-161.106-161.894"/></svg><span class="vh">Booking.com</span></li>
+            <li class="rc rc-e" tabindex="0" data-tip="Expedia reviews land in your inbox, with drafts for your team to approve."><svg viewBox="76.41 130.32 201 201" aria-hidden="true" focusable="false"><g transform="matrix(1 0 0 1 76.408318 130.171539)"><path fill="#202843" d="M 195.58594,133.10156 C 213.51172,80.585938 185.46875,23.484375 132.95312,5.558594 80.4375,-12.363281 23.335938,15.679688 5.414062,68.191406 -12.511719,120.70703 15.53125,177.80859 68.046875,195.73437 120.5625,213.65625 177.66406,185.61328 195.58594,133.10156"/><path fill="#ffc94c" d="M 15.425781,154.10547 C 31.0625,146.64453 84.28125,120.52344 94.769531,114.375 c 8.613279,-5.01953 21.441409,-12.42187 21.441409,-12.42187 l 5.4414,11.08984 8.3086,54.65234 6.34765,-3.66406 4.21875,-76.335938 c 12.82422,-8.015624 24.1211,-15.816406 35.94532,-23.976562 4.33593,-2.992188 8.74218,-6.035156 13.3164,-9.152344 -1.44922,-2.800781 -3.02734,-5.53125 -4.72656,-8.175781 -4.98828,2.402344 -9.82422,4.695313 -14.57813,6.953125 C 157.5,59.503906 145.09766,65.386719 131.74219,72.480469 l -68.214846,-34.507813 -6.347656,3.664063 43.175782,34.519531 6.87109,10.238281 0.0117,0.01953 c 0,0 -12.824218,7.40625 -21.480468,12.359376 -10.566406,6.007813 -59.808593,39.042973 -74.082031,48.847653 1.171875,2.21094 2.421875,4.3711 3.75,6.48438"/></g></svg><span class="vh">Expedia</span></li>
+            <li class="rc rc-q" tabindex="0" data-tip="Room QR notes arrive with the room attached, and can become issues for the right department."><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg><span class="vh">In-room QR codes</span></li>
+            <li class="rc rc-s" tabindex="0" data-tip="Survey answers are kept with the reviews and issues they relate to."><svg class="ic" aria-hidden="true"><use href="#i-survey"/></svg><span class="vh">Guest surveys</span></li>
             </ul>
         </div>
       </li>
@@ -446,12 +430,16 @@
 
 <!-- FAQ -->
 <section class="sec faq" id="faq" aria-labelledby="faqH">
-  <div class="faq-head rv"><h2 class="h-sec" id="faqH">Questions, answered.</h2></div>
+  <div class="faq-head rv"><h2 class="h-sec" id="faqH">Good questions, friendly answers.</h2></div>
   <div class="faq-list rv">
-    <details><summary>Is Sia the guest-facing agent or a manager tool?</summary><p>Sia is your manager-facing agent, available through text and voice. Managers can investigate reviews and issues, compare data they can access, and request permitted actions. The separate in-stay agent communicates with guests during their stay.</p></details>
-    <details><summary>Who approves and posts review replies?</summary><p>Replies are drafted for your team to edit and approve. You choose whether positive reviews are approved automatically. A person posts every reply.</p></details>
-    <details><summary>Can Sia work across a hotel group?</summary><p>Yes. Plus adds group analytics, cross-property questions and portfolio controls. Group leaders see only the portfolio they are allowed to access.</p></details>
-    <details><summary>How does pricing work?</summary><p>Pricing is per property. Contact sales for current pricing and help choosing the plan that fits your property or group.</p></details>
+    <details><summary>What is Sia?</summary><p>Sia is your hotel team's assistant. She gathers reviews, QR feedback and surveys, drafts replies, and turns problems into issues for the right department. You stay in charge.</p></details>
+    <details><summary>Which review sites does Sia read?</summary><p>Google, Tripadvisor, Booking.com and Expedia, plus the room QR notes and surveys your guests send you.</p></details>
+    <details><summary>Is Sia guest-facing?</summary><p>No. Sia works with your managers, by text or voice. Guests may see a short note from a separate in-stay agent after QR feedback or a survey.</p></details>
+    <details><summary>Who approves and posts replies?</summary><p>Your team approves. You choose whether high ratings are approved automatically. A person always posts.</p></details>
+    <details><summary>Does Sia hide guest feedback?</summary><p>No. Unhappy guests can always tell you what happened, and happy guests see your review links. Sia never filters or posts reviews.</p></details>
+    <details><summary>Which languages does it support?</summary><p>Replies in 31 languages, with translations for your team. The workspace is available in English, Arabic, Indonesian and Malay.</p></details>
+    <details><summary>Can Sia work across a group?</summary><p>Yes. Plus adds group analytics, questions across properties, and roles for each person.</p></details>
+    <details><summary>How does pricing work?</summary><p>Pricing is per property. Get in touch and we'll help you choose the right plan.</p></details>
   </div>
 </section>
 
@@ -461,7 +449,12 @@
     <!-- PENDING DECISION OQ-10: "your own reviews" stays gated off until sales confirms feasibility. -->
     <h2 id="closeH" data-close-default>See Sia on a hotel like yours.</h2>
     <h2 data-claim="own-reviews" hidden>See Sia on your own reviews.</h2>
-    <p>Book a short walkthrough. We'll look at a property like yours and where Sia would fit your team.</p>
+    <p>Book a short walkthrough. We'll look at a hotel like yours and show where Sia helps most.</p>
+    <ul class="tick-list">
+      <li>No pitch deck. Bring your questions.</li>
+      <li>Our team checks each hotel before it goes live.</li>
+      <li>Your team approves replies. A person always posts.</li>
+    </ul>
     <div class="actions"><a class="btn" data-cta href="mailto:team@avarin.ai?subject=Book%20a%20walkthrough%20of%20Sia">Book a walkthrough</a></div>
     <p class="close-fallback">Or email <a class="link" href="mailto:team@avarin.ai">team@avarin.ai</a>.</p>
   </div>
@@ -489,7 +482,7 @@
         <span class="ft-label">Talk to us</span>
         <a class="ft-email" href="mailto:team@avarin.ai">team@avarin.ai</a>
       </div>
-      <p class="ft-note">For demos, pricing, and group questions.</p>
+      <p class="ft-note">Happy to help with demos, pricing and group questions.</p>
     </div>
     <div class="ft ft-w">
       <img src="brand/avarin-wordmark-light.svg" alt="Avarin" width="520" height="64" loading="lazy">
@@ -502,7 +495,7 @@
       <span class="ft-a-copy">
         <span class="ft-a-kicker">Ready when you are</span>
         <span class="ft-a-title" data-cta-label>Book a walkthrough</span>
-        <span class="ft-a-sub">A short demo on a hotel like yours.</span>
+        <span class="ft-a-sub">A short, friendly demo on a hotel like yours.</span>
       </span>
       <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 20h26M22 10l10 10-10 10" fill="none" stroke="currentColor" stroke-width="4"/></svg>
     </a>
@@ -512,6 +505,5 @@
 <script src="app.js"></script>
 <script src="hero.js"></script>
 <script src="how.js"></script>
-<nav class="vnav" aria-label="Layout options"><a href="index.html" aria-current="page">A · Swipe track</a><a href="how-b.html">B · Zig-zag</a></nav>
 </body>
 </html>

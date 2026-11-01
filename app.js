@@ -17,7 +17,7 @@
     CTA_SECONDARY:'',          /* none rendered until OQ-02 is answered */
     BRIEFING_LABEL:"Today's briefing",
     CHAPTER_EYEBROWS:false,    /* S-07 proposal, off by default */
-    PLAN_CTA_LABEL:'Talk to sales',
+    PLAN_CTA_LABEL:'Talk to our team',
     PLAN_CTA_HREF:'mailto:team@avarin.ai?subject=Talk%20to%20sales%20about%20Sia'
   };
 
@@ -279,7 +279,7 @@
         var mode = checked ? checked.value : 'team';
         output.textContent = mode === 'positive'
           ? 'Positive reviews are pre-approved. A person still posts it.'
-          : 'Every reply waits for your team. A person posts it.';
+          : 'Your team checks every reply. A person posts it.';
         inputs.forEach(function(input){
           var label = input.closest('.approve-option');
           if (label) label.classList.toggle('is-selected', input.checked);
